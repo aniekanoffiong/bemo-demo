@@ -16,6 +16,10 @@ class CreateSiteContentsTable extends Migration
         Schema::create('site_contents', function (Blueprint $table) {
             $table->id();
             $table->string('page_slug')->index();
+            $table->boolean('search_index')->default(false);
+            $table->string('title')->nullable();
+            $table->string('description')->nullable();
+            $table->string('featured_image')->nullable();
             $table->text('content')->nullable();
             $table->timestamps();
         });

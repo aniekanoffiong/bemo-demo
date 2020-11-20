@@ -13,21 +13,10 @@ class SiteConfigSeeder extends Seeder
     public function run()
     {
         $config_data = [
-            [
-                'page_slug' => 'welcome',
-                'search_index' => false,
-                'title' => 'Welcome',
-                'description' => 'Welcome to our Site',
-            ],
-            [
-                'page_slug' => 'contact',
-                'search_index' => false,
-                'title' => 'Contact Us',
-                'description' => 'Send us a message',
-            ],
+            'facebook_ad' => '',
+            'google_analytics' => '',
+            'contact_email' => ''
         ];
-        foreach($config_data as $config) {
-            SiteConfig::create($config);
-        }
+        SiteConfig::create($config_data);
     }
 }

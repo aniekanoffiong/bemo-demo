@@ -15,10 +15,9 @@ class CreateSiteConfigsTable extends Migration
     {
         Schema::create('site_configs', function (Blueprint $table) {
             $table->id();
-            $table->string('page_slug')->index();
-            $table->boolean('search_index');
-            $table->string('title')->nullable();
-            $table->string('description')->nullable();
+            $table->text('facebook_ad')->nullable();
+            $table->text('google_analytics')->nullable();
+            $table->text('contact_email')->nullable();
             $table->timestamps();
         });
     }

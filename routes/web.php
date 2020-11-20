@@ -13,10 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PageController@welcome');
+Route::get('/', 'PageController@welcome')->name('welcome');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('{page_slug}', 'PageController@page');
+Route::get('/contact', 'PageController@contact')->name('contact');

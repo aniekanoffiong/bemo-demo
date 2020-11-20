@@ -13,18 +13,24 @@ class SiteContentSeeder extends Seeder
      */
     public function run()
     {
-        $home_content = fopen(dirname(__FILE__) . '/home_content.html');
-        $contact_content = fopen(dirname(__FILE__) . '/contact_content.html');
+        $home_content = file_get_contents(dirname(__FILE__) . '/home_content.html');
+        $contact_content = file_get_contents(dirname(__FILE__) . '/contact_content.html');
         $converter = new HtmlConverter();
         $home_content_mk = $converter->convert($home_content);
         $contact_content_mk = $converter->convert($contact_content);
         $content_data = [
             [
                 'page_slug' => 'welcome',
+                'search_index' => false,
+                'title' => 'Welcome',
+                'description' => 'Welcome to our Site',
                 'content' => $home_content_mk,
             ],
             [
                 'page_slug' => 'contact',
+                'search_index' => false,
+                'title' => 'Contact Us',
+                'description' => 'Send us a message',
                 'content' => $contact_content_mk,
             ],
         ];
