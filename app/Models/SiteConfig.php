@@ -12,7 +12,7 @@ class SiteConfig extends Model
      * @var array
      */
     protected $fillable = [
-        'page_slug', 'search_index', 'title', 'description'
+        'facebook_ad', 'google_analytics', 'contact_email'
     ];
 
 }

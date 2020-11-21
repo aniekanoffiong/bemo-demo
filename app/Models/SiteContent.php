@@ -12,7 +12,8 @@ class SiteContent extends Model
      * @var array
      */
     protected $fillable = [
-        'page_slug', 'content'
+        'page_slug', 'search_index', 'featured',
+        'title', 'description', 'content',
     ];
 
 }

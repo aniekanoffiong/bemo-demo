@@ -15,6 +15,9 @@
                 <li class="nav-item {{ Route::currentRouteName() == 'contact' ? 'active' : ''}}">
                     <a class="nav-link" href="/contact" rel="self">Contact Us</a>
                 </li>
+                <li class="nav-item {{ Route::currentRouteName() == 'login' ? 'active' : ''}}">
+                    <a class="nav-link" href="/login" rel="self">Login</a>
+                </li>
             </ul>
         </div>
     </nav>
