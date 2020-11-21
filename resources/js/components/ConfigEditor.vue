@@ -37,27 +37,29 @@
 </template>
 
 <script>
-    export default {
-        name: 'ConfigEditor',
-        mounted() {
-            console.log('Component mounted.')
-        },
-        data() {
-            return {
-                configForm: {
-                    contact_email: '',
-                    google_analytics: '',
-                    facebook_ad: '',
-                },
-            }
-        },
-        mounted() {
+import api from '../services/api'
 
-        },
-        methods: {
-            handleSubmit() {
-                api('/save-config', this.configForm, 'post')
+export default {
+    name: 'ConfigEditor',
+    mounted() {
+        console.log('Component mounted.')
+    },
+    data() {
+        return {
+            configForm: {
+                contact_email: '',
+                google_analytics: '',
+                facebook_ad: '',
             },
         }
+    },
+    mounted() {
+
+    },
+    methods: {
+        handleSubmit() {
+            api('/save-config', this.configForm, 'post')
+        },
     }
+}
 </script>

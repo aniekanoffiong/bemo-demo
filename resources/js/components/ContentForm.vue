@@ -68,15 +68,14 @@ export default {
             formData.append('type', this.type)
             formData.append('title', this.pageForm.title)
             formData.append('description', this.pageForm.description)
-            formData.append('search_index', this.pageForm.search_index)
+            formData.append('search_index', this.pageForm.search_index ? 1 : 0)
             formData.append('content', this.pageForm.content)
-            if (! _.isEmpty(this.pageForm.featured)) {
-                formData.append('featured', this.pageForm.featured)
-            }
-            api('/save-content', formData, 'post')
+            formData.append('featured', this.pageForm.featured)
+            api('/save-content', formData, 'post', true)
         },
         filesChange(fileList) {
-            this.featured = fileList[0]
+
+this.pageForm.featured = fileList[0]
         },
         loadData() {
             api(`/page-data/${this.type}`)

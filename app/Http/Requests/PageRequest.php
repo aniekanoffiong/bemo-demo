@@ -28,7 +28,7 @@ class PageRequest extends FormRequest
             'title' => 'string|nullable',
             'description' => 'string|nullable',
             'content' => 'string|nullable',
-            'search_index' => 'string|nullable',
+            'search_index' => 'boolean|nullable',
             'featured' => 'image|nullable',
         ];
     }

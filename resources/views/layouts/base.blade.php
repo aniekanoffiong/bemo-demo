@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="{{ $page->decription ?? 'Welcome to our Site' }}">
 	<meta name="robots" content="{{ $page->search_index ? 'index' : 'noindex' }}">
-    <title>{{ $title }}</title>
+    <title>{{ $page->title ?? 'Welcome' }}</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- favicon -->
     {{-- CSS --}}

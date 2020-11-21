@@ -2,10 +2,11 @@
 
 namespace App\Services;
 
-use App\Mails\ContactMessageNotice;
+use App\Mail\ContactMessageNotice;
 use App\Models\SiteContent;
 use App\Models\SiteConfig;
 use Parsedown;
+use Storage;
 use Mail;
 
 class PageService
@@ -48,12 +49,12 @@ class PageService
     public function update_page_data($request)
     {
         if ($request->hasFile('featured')) {
-            $file_url = '/storage/' . Storage::disk('public')->putFile('images', $$request->file('featured')); 
+            $file_url = '/storage/' . Storage::disk('public')->putFile('images', $request->file('featured')); 
         }
         $content = SiteContent::where('page_slug', $request->type)->first();
         if ($content) {
             $content->title = $request->title ?? $content->title;
-            $content->featured_image = $request->featured ?? $content->featured_image;
+            $content->featured_image = $file_url ?? $content->featured_image;
             $content->description = $request->description ?? $content->description;
             $content->content = $request->content ?? $content->content;
             $content->search_index = $request->search_index ?? $content->search_index;
@@ -68,7 +69,7 @@ class PageService
         if ($config) {
             $config->contact_email = $request->contact_email ?? $config->contact_email;
             $config->google_analytics = $request->google_analytics ?? $config->google_analytics;
-            $config->facebook_ad = $request->facebook_ad ?? $facebook_ad->config;
+            $config->facebook_ad = $request->facebook_ad ?? $config->facebook_ad;
             return $config->save();
         }
         return false;
